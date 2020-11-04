@@ -12,7 +12,7 @@ public class BinarySearch {
         return binarySearchHelper(data, target, 0, data.length-1);  // place holder
     }
 
-    public static int binarySearchHelper(int[] data, int target, int start, int end) {
+    private static int binarySearchHelper(int[] data, int target, int start, int end) {
         int mid = (start + end)/2;
 
         if (data[mid] == target) {
