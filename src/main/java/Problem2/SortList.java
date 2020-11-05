@@ -48,20 +48,22 @@ public class SortList {
         // homework
         if (list1 != null && list2 != null) {
 
-            if (list1.val >= list2.val) {
-                list1.next = mergeLists(list1, list2.next);
+            if (list1.val <= list2.val) {
+                list1.next = mergeLists(list1.next, list2);
                 return list1;
             } else {
-                list2.next = mergeLists(list1.next, list2);
+                list2.next = mergeLists(list1, list2.next);
                 return list2;
             }
 
-        } else if (list1 != null) {
-            list2.next = mergeLists(list1.next, list2);
-            return list2;
-        } else if (list2 != null) {
-            list1.next = mergeLists(list1, list2.next);
+        }
+        if (list1 != null) {
+            list1.next = mergeLists(list1.next, list2);
             return list1;
+        }
+        if (list2 != null) {
+            list2.next = mergeLists(list1, list2.next);
+            return list2;
         }
         return null;
     }
