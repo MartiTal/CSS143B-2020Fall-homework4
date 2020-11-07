@@ -6,6 +6,30 @@ public class BinarySearch {
     // Add a helper function for recursion calls
     public static int binarySearch(int[] data, int target) {
         // homework
-        return -1;  // place holder
+        if (data == null || data.length == 0)
+            return -1;
+
+        return binarySearchHelper(data, target, 0, data.length-1);  // place holder
+    }
+
+    private static int binarySearchHelper(int[] data, int target, int start, int end) {
+        int mid = (start + end)/2;
+
+        if (data[mid] == target) {
+            return mid;
+        }
+
+        if (start == end) {
+            return -1;
+        }
+
+        if (target > data[mid]) {
+            start = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+
+        return binarySearchHelper(data, target, start, end);
+
     }
 }
